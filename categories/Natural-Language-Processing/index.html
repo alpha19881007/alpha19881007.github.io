@@ -93,15 +93,17 @@
 <p>As for the first point above, that is to say we hope few words can cooperate with the candidate word to make a fixed combination. And it is natural to use entropy to measure the diversity around a candidate word. For the second point, the candidate word is probably made by several sub words in return, so we do hope the probablity of this word higher than those sub words appear independently in corpus. This time we can use a simple ralative entropy form to decide the similarity of word distribution.</p>
 <p>May be here you still can not believe that such simple idea can leads to admiring results, but it does.</p>
 <h2 id="Roadblocks">Roadblocks</h2>
-<p>It’s not difficult to compute entropy around a candidate word thinking in mapreduce. Here suppose you’v already known some basic knowledge about hadoop, like hdfs, mapreduce and so on. To compute entropy around a candidate word, we need to have several steps as follow.</p>
+<h3 id="Word_Around_Diversity">Word Around Diversity</h3>
+<p>It’s not difficult to compute entropy around a candidate word thinking in mapreduce. Here suppose you’v already known some basic knowledge about <a href="http://hadoop.apache.org" target="_blank" rel="external">hadoop</a>, like hdfs, mapreduce and so on. To compute entropy around a candidate word, we need to have several steps as follow.</p>
 <p>First, split corpus lines into a large amount of candidate words using suffix representation; </p>
 <p>Second, find out all words around a candidate word and count their occurence each, then compute its left and right entropy respectively. No doult, this step should go through all candidate words;</p>
 <p>Last, entropy threshold need to be set, in my experiment, it’s 1.5. If the left and right entropy of a candidate word all greater than this threshold value, then this word will be passed to next stage filtering.</p>
+<h3 id="Word_Inner_Coherence">Word Inner Coherence</h3>
 <p>After above steps, we’v got real candidate words, but we still need to filter them in more fine way. Now we are ready to take word inner coherence into our consideration. In fact, it is not easy to do so, because of memory limit. Here we first give following steps to compute word inner coherence.</p>
 <p>First, compute word frequency when we have got the result from suffix representation step;</p>
-<p>Second, by using simple KL distance, we can get the similarity between a candidate word and its sub word combinations, and then choose maximal one as index to word coherence.</p>
+<p>Second, by using simple KL form, we can get the distance between a candidate word and its sub words combination respectively, and then choose maximal one as index to word coherence.</p>
 <p>Last, again we need to set a threshold value to filter word coherence, this time in my experiment,  word inner coherence greater than 6.5 will be qulified word.</p>
-<p>Till now, have you ever asked a question to yourself? If your current corpus size is more than 50G, what the corresponding size of output from above first step will be? Ha, it must be several times over 100G. It’s huge, isn’t it?  Even worse, its scale goes up according to your corpus size exponentially, so can not be loaded to memory directly. Unfortunately above second computation step need word frequency information, so this is real problem we need to figure out.</p>
+<p>Till now, have you ever asked a question to yourself? If your current corpus size is more than 50G, what the corresponding size of output from above first step will be? Ha, it must be several times over 100G. It’s huge, isn’t it?  Even worse, its scale goes up according to your corpus size exponentially, so can not be loaded to memory directly. Unfortunately above second computation step need word frequency information, so this is the real problem we have to figure out.</p>
 
       
     </div>

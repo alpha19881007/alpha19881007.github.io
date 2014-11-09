@@ -75,7 +75,7 @@
 
       
         <p class="published">
-          Published: <time datetime="2014-11-07T09:38:01.000Z">Nov 7 2014</time>
+          Published: <time datetime="2014-11-07T09:38:01.000Z">11月 7 2014</time>
         </p>
       
     </header>
@@ -119,7 +119,7 @@
 
       
         <p class="published">
-          Published: <time datetime="2014-11-07T09:37:48.000Z">Nov 7 2014</time>
+          Published: <time datetime="2014-11-07T09:37:48.000Z">11月 7 2014</time>
         </p>
       
     </header>
@@ -163,7 +163,7 @@
 
       
         <p class="published">
-          Published: <time datetime="2014-11-07T09:35:08.000Z">Nov 7 2014</time>
+          Published: <time datetime="2014-11-07T09:35:08.000Z">11月 7 2014</time>
         </p>
       
     </header>
@@ -174,8 +174,14 @@
 <p>The main idea of this blog comes from one article from web, which you can refer to <a href="http://www.matrix67.com/blog/archives/5044" target="_blank" rel="external">here</a>. After reading, I find the idea proposed is so cool and amazing, so I decide to implement it. By coincidence I have just buit our language model trainning framework on hadoop platform at that time, and hadoop become my choice naturally. This is the first time I get a taste of the charm of data minning. Thanks to Matrix67.</p>
 <h2 id="Main_Idea">Main Idea</h2>
 <p>Befor we step into details, We should think over a question first, namely, how a word can be a real word? This question is quite weird, isn’t it? But different answers to it generate totally different way of processing. In Matrix67’s article, he mainly mantains two points. First, those words before and behind this candidate word should be as more diverse as possible. Second, the inner coherence of this word also need to be as strong as possible.</p>
-<p>As for the first point above, that is to say we hope there have no or few words can cooperate with the candidate word to make a fixed combination. And it is natural to use entropy to measure the diversity around a candidate word. For the second point, the candidate word is probably made by several sub words in return, so we do hope the probablity of this word higher than those sub words appear independently in corpus. This time we can use a simple ralative entropy form to decide the similarity of word distribution.</p>
-<p>May be here you can not believe that such simple idea can leads to admiring results, but it does.</p>
+<p>As for the first point above, that is to say we hope few words can cooperate with the candidate word to make a fixed combination. And it is natural to use entropy to measure the diversity around a candidate word. For the second point, the candidate word is probably made by several sub words in return, so we do hope the probablity of this word higher than those sub words appear independently in corpus. This time we can use a simple ralative entropy form to decide the similarity of word distribution.</p>
+<p>May be here you still can not believe that such simple idea can leads to admiring results, but it does.</p>
+<h2 id="Roadblocks">Roadblocks</h2>
+<p>It’s not difficult to compute entropy around a candidate word thinking in mapreduce. Here suppose you’v already known some basic knowledge about hadoop, like hdfs, mapreduce and so on. To compute entropy around a candidate word, we need to have several steps as follow.</p>
+<p>First, split corpus lines into a large amount of candidate words using suffix representation; </p>
+<p>Second, compute word frequency when we have got the result from last step;</p>
+<p>Third, find out all words around a candidate word and count their occurence each, then compute its left and right entropy respectively. No doult, this step should go through all candidate words;</p>
+<p>Last, entropy threshold need to be set, in my experiment, it’s 1.5. If the left and right entropy of a candidate word all greater than this threshold value, then this word will be passed to next stage filtering.</p>
 
       
     </div>
@@ -214,7 +220,7 @@
 
       
         <p class="published">
-          Published: <time datetime="2014-11-07T02:03:20.000Z">Nov 7 2014</time>
+          Published: <time datetime="2014-11-07T02:03:20.000Z">11月 7 2014</time>
         </p>
       
     </header>

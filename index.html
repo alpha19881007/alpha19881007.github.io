@@ -182,6 +182,7 @@
 <p>Second, compute word frequency when we have got the result from last step;</p>
 <p>Third, find out all words around a candidate word and count their occurence each, then compute its left and right entropy respectively. No doult, this step should go through all candidate words;</p>
 <p>Last, entropy threshold need to be set, in my experiment, it’s 1.5. If the left and right entropy of a candidate word all greater than this threshold value, then this word will be passed to next stage filtering.</p>
+<p>Till now, have you ever asked a question to yourself? If your current corpus size is more than 50G, what the corresponding size of output from above second step will be? It must be several times over 100G. It’s huge, isn’t it?  Even worse, it goes up according to your corpus size exponentially, so can not be loaded to memory directly.</p>
 
       
     </div>

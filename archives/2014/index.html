@@ -88,7 +88,7 @@
         <h2 id="Problem_Source">Problem Source</h2>
 <p>In June this year, I start to approach hadoop and always wonder its meaning to me. After reading a book named Data Intensive Text Processing with Mapreduce, I gradually know what hadoop can do and what can not. </p>
 <p>Hadoop suits batch processing tasks well, but no interaction among sub tasks limits its usage. For example, top down or bottom up based word clustering can not be handled by hadoop. As we see, <a href="http://mahout.apache.org/" target="_blank" rel="external">mahout</a> is an open source project founded by Apache, which contains implementation of several machine learning algorithms, such as k-means, naive bayes, recommendation system etc. If you have interest, download from <a href="http://svn.apache.org/repos/asf/mahout/trunk" target="_blank" rel="external">here</a>.</p>
-<p>Whether hadoop can train a BP neural network or not, this question troubles me a lot. You see stocastic gradient descent, batch gradient descent and gradient descent are often the ways to optmize weight matrixes in neural network trainning process.</p>
+<p>Whether hadoop can train a BP neural network or not, this question troubles me a lot. You probably see stocastic gradient descent, batch gradient descent and gradient descent are often the ways to optmize weight matrixes in neural network trainning process.</p>
 
       
     </div>
@@ -152,6 +152,7 @@
 <p>Second, by using simple KL form, we can get the distance between a candidate word and its sub words combination respectively, and then choose maximal one as index to word coherence.</p>
 <p>Last, again we need to set a threshold value to filter word coherence, this time in my experiment,  word inner coherence greater than 6.5 will be regarded as a qulified one.</p>
 <p>Till now, have you ever asked a question to yourself? If your current corpus size is more than 50G, what the corresponding size of output from above first step will be? Ha, it must be several times over 100G. It’s huge, isn’t it?  Even worse, its scale goes up according to your corpus size exponentially, so can not be loaded to memory directly. Unfortunately above second computation step need word frequency information, so this is the real problem we have to figure out.</p>
+<p>$$J_\alpha(x)=\sum _{m=0}^\infty \frac{(-1)^ m}{m! \, \Gamma (m + \alpha + 1)}{\left({\frac{x}{2}}\right)}^{2 m + \alpha }$$</p>
 
       
     </div>
@@ -234,6 +235,18 @@
 <script src="/js/gallery.js"></script>
 
 
+<script type="text/javascript">
+var disqus_shortname = 'alpha19881007';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
 
 
 <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
@@ -243,6 +256,38 @@
   $('.fancybox').fancybox();
 })(jQuery);
 </script>
+x config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
 
 </body>
 </html>

@@ -85,21 +85,23 @@
 <p>The main idea of this blog comes from one article from web, which you can refer to <a href="http://www.matrix67.com/blog/archives/5044" target="_blank" rel="external">here</a>. After reading, I find the idea proposed is so cool and amazing, so I decide to implement it. By coincidence I have just buit our language model trainning framework on hadoop platform at that time, and hadoop become my choice naturally. This is the first time I get a taste of the charm of data minning. Thanks to <a href="http://www.matrix67.com/" target="_blank" rel="external">Matrix67</a>.</p>
 <h2 id="Main_Idea">Main Idea</h2>
 <p>Befor we step into details, We should think over a question first, namely, how a word can be a real word? This question is quite weird, isn’t it? But different answers to it generate totally different way of processing. In Matrix67’s article, he mainly mantains two points. First, those words before and behind this candidate word should be as more diverse as possible. Second, the inner coherence of this word also need to be as strong as possible.</p>
-<p>As for the first point above, that is to say we hope few words can cooperate with the candidate word to make a fixed combination. And it is natural to use <a href="http://zh.wikipedia.org/wiki/%E7%86%B5" target="_blank" rel="external">entropy</a> to measure the diversity around a candidate word. For the second point, the candidate word is probably made by several sub words in return, so we do hope the probablity of this word higher than those sub words appear independently in corpus. This time we can use a simple <a href="http://zh.wikipedia.org/wiki/%E7%9B%B8%E5%AF%B9%E7%86%B5" target="_blank" rel="external">ralative entropy</a> form to decide the similarity of word distribution.</p>
+<p>As for the first point above, that is to say we hope few words can cooperate with the candidate word to make a fixed combination. And it is natural to use <a href="http://zh.wikipedia.org/wiki/%E7%86%B5" target="_blank" rel="external">entropy</a> to measure the diversity around a candidate word. For the second point, the candidate word is probably made by several sub words in return, so we do hope the probablity of this word higher than those sub words appear independently in corpus. This time we design a simple strategy to decide the similarity of word distribution.</p>
 <p>May be here you still can not believe that such simple idea can leads to admiring results, but it does.</p>
 <h2 id="Roadblocks">Roadblocks</h2>
 <h3 id="Word_Around_Diversity">Word Around Diversity</h3>
 <p>It’s not difficult to compute entropy around a candidate word thinking in mapreduce. Here suppose you’v already known some basic knowledge about <a href="http://hadoop.apache.org" target="_blank" rel="external">hadoop</a>, like hdfs, mapreduce and so on. To compute entropy around a candidate word, we need to have several steps as follow.</p>
-<p>First, split corpus lines into a large amount of candidate words using suffix representation; </p>
-<p>Second, find out all words around a candidate word and count their occurence each, then compute its left and right entropy respectively. No doult, this step should go through all candidate words;</p>
+<p>First, split corpus lines into a large amount of candidate words using suffix representation.</p>
+<p>Second, find out all words around a candidate word and count their occurence each, then compute its left and right entropy respectively. No doult, this step should go through all candidate words.</p>
 <p>Last, entropy threshold need to be set, in my experiment, it’s 1.5. If the left and right entropy of a candidate word all greater than this threshold value, then this word will be passed to next stage filtering.</p>
 <h3 id="Word_Inner_Coherence">Word Inner Coherence</h3>
 <p>After above steps, we’v got real candidate words, but we still need to filter them in more fine way. Now we are ready to take word inner coherence into our consideration. In fact, it is not easy to do so, because of memory limit. Here we first give following steps to compute word inner coherence.</p>
-<p>First, compute word frequency when we have got the result from suffix representation step;</p>
-<p>Second, by using simple KL form, we can get the distance between a candidate word and its sub words combination respectively, and then choose maximal one as index to word coherence.</p>
+<p>First, compute word frequency when we have got the result from suffix representation step.</p>
+<p>Second, by using a simple formula down below, in which $w_i$ and $w_j$ is just one way to form $w$, we choose maximal one as the index to that word coherence.</p>
+<p>$$S(w_i, w_j)=\log\frac{p(w)}{p(w_i)*p(w_j)}$$</p>
+<p>Above formula is similar to the one used in <a href="http://blog.csdn.net/lingerlanlan/article/details/38050843" target="_blank" rel="external">vec2phrase</a>, which is illustrated below. The differences here are we probably have more than one combination to form $w$, and use probability instead.</p>
+<p>$$S(w)=\frac{cnt(w_i,w_j)-alpha}{cnt(w_i)*cnt(w_j)}$$</p>
 <p>Last, again we need to set a threshold value to filter word coherence, this time in my experiment,  word inner coherence greater than 6.5 will be regarded as a qulified one.</p>
 <p>Till now, have you ever asked a question to yourself? If your current corpus size is more than 50G, what the corresponding size of output from above first step will be? Ha, it must be several times over 100G. It’s huge, isn’t it?  Even worse, its scale goes up according to your corpus size exponentially, so can not be loaded to memory directly. Unfortunately above second computation step need word frequency information, so this is the real problem we have to figure out.</p>
-<p>$$J_\alpha(x)=\sum _{m=0}^\infty \frac{(-1)^ m}{m! \, \Gamma (m + \alpha + 1)}{\left({\frac{x}{2}}\right)}^{2 m + \alpha }$$</p>
 
       
     </div>

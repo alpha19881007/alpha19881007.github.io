@@ -1,135 +1,50 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-  <meta charset="utf-8">
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[Alpha's Blog]]></title>
+  <subtitle><![CDATA[Try to Understand, Try to Conquer]]></subtitle>
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://alpha19881007.com/"/>
+  <updated>2014-11-11T01:05:25.719Z</updated>
+  <id>http://alpha19881007.com/</id>
   
-  <title>Alpha&#39;s Blog</title>
-  <meta name="author" content="Wenqiang.Xu">
+  <author>
+    <name><![CDATA[Wenqiang.Xu]]></name>
+    <email><![CDATA[xuwenqiang0563@gmail.com]]></email>
+  </author>
   
-  <meta name="description" content="Natural Language Processing | Mechine Learning | Pattern Recognition | Language Model | Deep Learning | Recurrent Neutral Network | Speech Recognition">
+  <generator uri="http://zespia.tw/hexo/">Hexo</generator>
   
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-  
-  <meta property="og:site_name" content="Alpha&#39;s Blog"/>
-
-  
-    <meta property="og:image" content="undefined"/>
-  
-
-  <link href="/favicon.png" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="Alpha&#39;s Blog" type="application/atom+xml">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-  
-</head>
-
-<body>
-  <header id="header" class="inner"><div class="alignleft">
-  <h1><a href="/">Alpha&#39;s Blog</a></h1>
-  <h2><a href="/">Try to Understand, Try to Conquer</a></h2>
-</div>
-<nav id="main-nav">
-  <ul>
-    
-      <li><a href="/">Home</a></li>
-    
-      <li><a href="/archives">Archives</a></li>
-    
-      <li><a href="/about">About</a></li>
-    
-  </ul>
-  <div class="clearfix"></div>
-</nav>
-<div class="clearfix"></div>
-<div class="alignleft" style="margin-top: 15px">
-
-
-</div>
-<div class="clearfix"></div>
-</header>
-  <div id="content" class="inner">
-    <div id="wrapper">
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-  
-    <h1 class="title"><a href="/2014/11/09/BP-Neural-NetWork-on-Hadoop/">BP Neural NetWork on Hadoop</a></h1>
-  
-
-      
-        <p class="published">
-          Published: <time datetime="2014-11-09T09:08:21.000Z">11月 9 2014</time>
-        </p>
-      
-    </header>
-    <div class="entry">
-      
-        <h2 id="Problem_Source">Problem Source</h2>
+  <entry>
+    <title><![CDATA[BP Neural NetWork on Hadoop]]></title>
+    <link href="http://alpha19881007.com/2014/11/09/BP-Neural-NetWork-on-Hadoop/"/>
+    <id>http://alpha19881007.com/2014/11/09/BP-Neural-NetWork-on-Hadoop/</id>
+    <published>2014-11-09T09:08:21.000Z</published>
+    <updated>2014-11-09T12:53:25.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="Problem_Source">Problem Source</h2>
 <p>In June this year, I start to approach hadoop and always wonder its meaning to me. After reading a book named Data Intensive Text Processing with Mapreduce, I gradually know what hadoop can do and what can not. </p>
 <p>Hadoop suits batch processing tasks well, but no interaction among sub tasks limits its usage. For example, top down or bottom up based word clustering can not be handled by hadoop. As we see, <a href="http://mahout.apache.org/" target="_blank" rel="external">mahout</a> is an open source project founded by Apache, which contains implementation of several machine learning algorithms, such as k-means, naive bayes, recommendation system etc. If you have interest, download from <a href="http://svn.apache.org/repos/asf/mahout/trunk" target="_blank" rel="external">here</a>.</p>
 <p>Whether hadoop can train a BP neural network or not, this question troubles me a lot. You probably see stocastic gradient descent, batch gradient descent and gradient descent are often the ways to optmize weight matrixes in neural network trainning process.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-<!-- hackish -->
-
-
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="Problem_Source">Problem Source</h2>
+<p>In June this year, I start to approach hadoop and always wonder its meaning to me. After read]]>
+    </summary>
     
-      <img src="">
+      <category term="Hadoop" scheme="http://alpha19881007.com/tags/Hadoop/"/>
     
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
+      <category term="Neural Network" scheme="http://alpha19881007.com/tags/Neural-Network/"/>
+    
+      <category term="Machine Learning" scheme="http://alpha19881007.com/categories/Machine-Learning/"/>
+    
+  </entry>
   
-  <div class="post-content">
-    <header>
-      
-  
-    <h1 class="title"><a href="/2014/11/07/New-Word-Extraction/">New Word Extraction</a></h1>
-  
-
-      
-        <p class="published">
-          Published: <time datetime="2014-11-07T09:35:08.000Z">11月 7 2014</time>
-        </p>
-      
-    </header>
-    <div class="entry">
-      
-        <h2 id="Introduction">Introduction</h2>
+  <entry>
+    <title><![CDATA[New Word Extraction]]></title>
+    <link href="http://alpha19881007.com/2014/11/07/New-Word-Extraction/"/>
+    <id>http://alpha19881007.com/2014/11/07/New-Word-Extraction/</id>
+    <published>2014-11-07T09:35:08.000Z</published>
+    <updated>2014-11-10T14:37:17.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="Introduction">Introduction</h2>
 <p>As we all know, vocabulary plays an important role in speech recognition, machine translation, natural language understanding and other NLP jobs. So efficiently automatic new word extraction from large scale corpus can release manual burden dramatically. In my experience, most e-commerce company emphasize new word collection, because those new words will be regarded as features and do help in their subsequent analytic jobs.</p>
 <p>The main idea of this blog comes from one article from web, which you can refer to <a href="http://www.matrix67.com/blog/archives/5044" target="_blank" rel="external">here</a>. After reading, I find the idea proposed is so cool and amazing, so I decide to implement it. By coincidence I have just buit our language model trainning framework on hadoop platform at that time, and hadoop become my choice naturally. This is the first time I get a taste of the charm of data minning. Thanks to <a href="http://www.matrix67.com/" target="_blank" rel="external">Matrix67</a>.</p>
 <h2 id="Main_Idea">Main Idea</h2>
@@ -151,140 +66,40 @@
 <p>$$S(w)=\frac{cnt(w_i,w_j)-alpha}{cnt(w_i)*cnt(w_j)}$$</p>
 <p>Last, again we need to set a threshold value to filter word coherence, this time in my experiment,  word inner coherence greater than 6.5 will be regarded as a qulified one.</p>
 <p>Till now, have you ever asked a question to yourself? If your current corpus size is more than 50G, what the corresponding size of output from above first step will be? Ha, it must be several times over 100G. It’s huge, isn’t it?  Even worse, its scale goes up according to your corpus size exponentially, so can not be loaded to memory directly. Unfortunately above second computation step need word frequency information, so this is the real problem we have to figure out.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-<!-- hackish -->
-
-
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="Introduction">Introduction</h2>
+<p>As we all know, vocabulary plays an important role in speech recognition, machine translation, na]]>
+    </summary>
     
-      <img src="">
+      <category term="New Word Extraction" scheme="http://alpha19881007.com/tags/New-Word-Extraction/"/>
     
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
+      <category term="Word Segment" scheme="http://alpha19881007.com/tags/Word-Segment/"/>
+    
+      <category term="Natural Language Processing" scheme="http://alpha19881007.com/categories/Natural-Language-Processing/"/>
+    
+  </entry>
   
-  <div class="post-content">
-    <header>
-      
-  
-    <h1 class="title"><a href="/2014/11/07/My-First-Post/">My First Hexo Journey</a></h1>
-  
-
-      
-        <p class="published">
-          Published: <time datetime="2014-11-07T02:03:20.000Z">11月 7 2014</time>
-        </p>
-      
-    </header>
-    <div class="entry">
-      
-        <h2 id="Welcome_to_My_Hexo_Blog_Zone!">Welcome to My Hexo Blog Zone!</h2>
+  <entry>
+    <title><![CDATA[My First Hexo Journey]]></title>
+    <link href="http://alpha19881007.com/2014/11/07/My-First-Post/"/>
+    <id>http://alpha19881007.com/2014/11/07/My-First-Post/</id>
+    <published>2014-11-07T02:03:20.000Z</published>
+    <updated>2014-11-09T12:48:59.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="Welcome_to_My_Hexo_Blog_Zone!">Welcome to My Hexo Blog Zone!</h2>
 <p>So excited to share life things with you guys here. To celebrate my first virgin journey, I would like to write down some words below.</p>
 <p>I always wish to find one cool place to record the little drops of my life, but never succeed until several days before when I suddenly met hexo developed by a student in Taiwan. Hexo is a kind of static web page generator, and by which we can build our own personal blog on our local machine, then move it over to github. Unlike common blog systems, web pages generated by hexo is very clean and tidy, no ad and other annoying things, and also the blog theme can be customized. So cool and I really love it, thanks a lot to the author. If you want to know more about hexo, you can click <a href="http://hexo.io" target="_blank" rel="external">here</a>.</p>
 <p>Ha, Let’s start our hexo blog journey now. But first we need get familiar to hexo grammar.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-<!-- hackish -->
-
-
-
-<nav id="pagination">
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="Welcome_to_My_Hexo_Blog_Zone!">Welcome to My Hexo Blog Zone!</h2>
+<p>So excited to share life things with you guys here. To celebrat]]>
+    </summary>
+    
+      <category term="Hexo Journey" scheme="http://alpha19881007.com/tags/Hexo-Journey/"/>
+    
+      <category term="Diary" scheme="http://alpha19881007.com/categories/Diary/"/>
+    
+  </entry>
   
-  
-  <div class="clearfix"></div>
-</nav></div>
-    <div class="clearfix"></div>
-  </div>
-  <footer id="footer" class="inner"><div class="alignleft">
-  
-  &copy; 2014 Wenqiang.Xu
-  
-</div>
-<div class="clearfix"></div></footer>
-  <script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-
-
-<script type="text/javascript">
-var disqus_shortname = 'alpha19881007';
-
-(function(){
-  var dsq = document.createElement('script');
-  dsq.type = 'text/javascript';
-  dsq.async = true;
-  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
-  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-}());
-</script>
-
-
-
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-(function($){
-  $('.fancybox').fancybox();
-})(jQuery);
-</script>
-x config similar to math.stackexchange -->
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-
-
-</body>
-</html>
+</feed>

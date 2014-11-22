@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Try to Understand, Try to Conquer]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://alpha19881007.com/"/>
-  <updated>2014-11-22T10:17:26.655Z</updated>
+  <updated>2014-11-22T11:07:59.875Z</updated>
   <id>http://alpha19881007.com/</id>
   
   <author>
@@ -92,6 +92,25 @@
       <category term="Word Segment" scheme="http://alpha19881007.com/tags/Word-Segment/"/>
     
       <category term="Natural Language Processing" scheme="http://alpha19881007.com/categories/Natural-Language-Processing/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[About Me]]></title>
+    <link href="http://alpha19881007.com/2014/11/07/About/"/>
+    <id>http://alpha19881007.com/2014/11/07/About/</id>
+    <published>2014-11-07T05:42:38.000Z</published>
+    <updated>2014-11-22T11:05:41.000Z</updated>
+    <content type="html"><![CDATA[<p>This blog is owned by Alpha. Alpha graduated from Nanjing University of Science &amp; Technology in April 2014. Research direction in postgraduate period is related to pattern recognition and machine learning.</p>
+<p>His current job correlates to ASR (acoustical speech recognition) and LM (language model). To be honest, I always think he is a lucky dog, because his job gets a lot to do with its original research direction. He has much interest in natural language processing, data minning and also distributed computation (hadoop spark storm etc.), and I do see he works hard to follow closely the steps of latest trend in those domains.</p>
+<p>The above said is uttered by my elder brother, not me. He is an emotional guy, isn’t he? Ha, no matter what do you think, I do belive that anyway. The reason why I decide to write blog in English is trying to keep and promote writing ability which easily degradate by time.</p>
+<p>I will record my work and study here, and wish all of you guys to come and comment, if you have any advice and problem. And here is my email address <a href="">xuwenqiang0563@qq.com</a>. Let’s learn together and work together!</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>This blog is owned by Alpha. Alpha graduated from Nanjing University of Science &amp; Technology in April 2014. Research direction in pos]]>
+    </summary>
+    
+      <category term="Diary" scheme="http://alpha19881007.com/categories/Diary/"/>
     
   </entry>
   

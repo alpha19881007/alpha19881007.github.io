@@ -5,18 +5,18 @@
   
   <title>BP Neural NetWork on Hadoop | Alpha&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Problem Source
-In June this year, I get started with hadoop and always wonder its meaning to me. After reading a book named Data Intensive Text Processing with Mapreduce, I gradually know what hadoop">
+  <meta name="description" content="Problem
+In June this year, I get started with hadoop and always wonder its meaning to me. After reading a book named Data Intensive Text Processing with Mapreduce, I gradually know what hadoop can do">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BP Neural NetWork on Hadoop">
 <meta property="og:url" content="http://alpha19881007.com/2014/11/09/BP-Neural-NetWork-on-Hadoop/">
 <meta property="og:site_name" content="Alpha's Blog">
-<meta property="og:description" content="Problem Source
-In June this year, I get started with hadoop and always wonder its meaning to me. After reading a book named Data Intensive Text Processing with Mapreduce, I gradually know what hadoop">
+<meta property="og:description" content="Problem
+In June this year, I get started with hadoop and always wonder its meaning to me. After reading a book named Data Intensive Text Processing with Mapreduce, I gradually know what hadoop can do">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BP Neural NetWork on Hadoop">
-<meta name="twitter:description" content="Problem Source
-In June this year, I get started with hadoop and always wonder its meaning to me. After reading a book named Data Intensive Text Processing with Mapreduce, I gradually know what hadoop">
+<meta name="twitter:description" content="Problem
+In June this year, I get started with hadoop and always wonder its meaning to me. After reading a book named Data Intensive Text Processing with Mapreduce, I gradually know what hadoop can do">
 
   
     <link rel="alternative" href="/atom.xml" title="Alpha&#39;s Blog" type="application/atom+xml">
@@ -92,11 +92,14 @@ In June this year, I get started with hadoop and always wonder its meaning to me
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Problem_Source">Problem Source</h2>
+        <h2 id="Problem">Problem</h2>
 <p>In June this year, I get started with hadoop and always wonder its meaning to me. After reading a book named Data Intensive Text Processing with Mapreduce, I gradually know what hadoop can do and what can not. </p>
 <p>Hadoop suits batch processing tasks well, but no interaction among sub-tasks limits its usage. For example, top down or bottom up based word clustering can hardly be handled by hadoop. Great efforts have been made to push hadoop into industrial usage. As we see, <a href="http://mahout.apache.org/" target="_blank" rel="external">mahout</a> is an open source project founded by Apache, which contains implementation of several machine learning algorithms, such as k-means, naive bayes, recommendation system, etc. If you are interested, download from <a href="http://svn.apache.org/repos/asf/mahout/trunk" target="_blank" rel="external">here</a>.</p>
 <p>Can hadoop train a BP neural network or not? This question troubles me a lot. You probably see stocastic gradient descent, batch gradient descent and gradient descent are often the ways to optimize weight matrixes in neural network trainning process.</p>
-<p>Batch and stocastic based gradient descent methods all need to update weight matrix during processing samples. So there must be a global share state to keep newest model parameters, and current model state should be read before every feed forward step. In the meantime, fine-grained synchronization will have significant impact on parallization, what surely applies to hadoop. As I see, gradient descent can be implemented simply on hadoop of its easy calculation of expectation.</p>
+<p>Batch and stocastic based gradient descent methods all need to update weight matrix during processing samples. So there must be a global share state to keep newest model parameters, and current model state should be read before every feed forward step. In the meantime, but fine-grained synchronization will have significant impact on parallization, what surely applies to hadoop. As I see, gradient descent can be implemented simply on hadoop because of its easy calculation of expectation.</p>
+<p>Here, in fact, we are gonna not only tell how to train a BP neural network, but also how to build a basic iterative framework of machine learning on hadoop. If we make it clear, different kinds of machine learning algorithms can be implemented by ourselves effortlessly. Obviously, we have to analyze its feasibility first.</p>
+<h2 id="Basics">Basics</h2>
+<p><a href="http://en.wikipedia.org/wiki/Backpropagation" target="_blank" rel="external">BP</a> algorithm is a famous neural network optimization method, which was proposed in  80’s last century. Here we only talk about error back propagation process. Error propagation basically is to take derivatives of a composite function portrayed by neural network.</p>
 
       
     </div>
@@ -141,7 +144,7 @@ In June this year, I get started with hadoop and always wonder its meaning to me
     <div class="widget">
         <ul class='toc'>
         <li><a class='anchor' href='#logo'>Title</a></li>
-        <li><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem_Source"><span class="toc-number">1.</span> <span class="toc-text">Problem Source</span></a></li></ol></li>
+        <li><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem"><span class="toc-number">1.</span> <span class="toc-text">Problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Basics"><span class="toc-number">2.</span> <span class="toc-text">Basics</span></a></li></ol></li>
         <li><a class='anchor' href='#comments'>Comments</a></li> 
         </ul>
     </div>
